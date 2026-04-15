@@ -49,6 +49,9 @@ public class Payment {
     @Column(name = "ledger_transfer_id")
     private String ledgerTransferId;
 
+    @Column(name = "retry_attempts", nullable = false)
+    private Integer retryAttempts = 0;
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private OffsetDateTime createdAt;
@@ -65,5 +68,6 @@ public class Payment {
         this.currency = currency;
         this.description = description;
         this.status = status;
+        this.retryAttempts = 0;
     }
 }
